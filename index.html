@@ -3,610 +3,500 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Michele Adolfo Natorf — Atendimento & Gestão de Projetos</title>
+<title>Michele Adolfo Natorf</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --color-bg: #faf8f5;
-    --color-bg-alt: #f2ede6;
-    --color-text: #2c2420;
-    --color-muted: #7a6e67;
-    --color-accent: #6b5c4e;
-    --color-accent-light: #ede8e2;
-    --color-border: #ddd5c8;
-    --color-tag-bg: #ede8e2;
-    --color-tag-text: #5a4d42;
+    --black: #0a0a0a;
+    --white: #ffffff;
+    --gray: #888;
+    --light: #f5f5f5;
+    --border: #e0e0e0;
   }
 
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    color: var(--color-text);
-    background: var(--color-bg);
-    line-height: 1.6;
+    font-family: 'Times New Roman', Times, serif;
+    color: var(--black);
+    background: var(--white);
     font-size: 16px;
+    line-height: 1.5;
   }
 
   a { color: inherit; text-decoration: none; }
 
   /* NAV */
   nav {
-    position: sticky;
+    position: fixed;
     top: 0;
-    background: rgba(250,248,245,0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--color-border);
+    left: 0;
+    right: 0;
     z-index: 100;
-    padding: 0 2rem;
-  }
-  nav .nav-inner {
-    max-width: 1000px;
-    margin: 0 auto;
+    padding: 0 40px;
+    height: 56px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: 60px;
-  }
-  .nav-logo {
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    color: var(--color-muted);
+    justify-content: space-between;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    mix-blend-mode: normal;
   }
   .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 32px;
     list-style: none;
   }
   .nav-links a {
-    font-size: 14px;
-    color: var(--color-muted);
-    transition: color 0.2s;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--black);
   }
-  .nav-links a:hover { color: var(--color-text); }
-
-  /* SECTIONS */
-  section { padding: 80px 2rem; }
-  .container { max-width: 1000px; margin: 0 auto; }
+  .nav-links a:hover { color: var(--gray); }
+  .nav-contact {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--black);
+  }
 
   /* HERO */
   #hero {
-    position: relative;
-    padding: 120px 2rem 100px;
-    background: var(--color-bg);
-    overflow: hidden;
-    min-height: 520px;
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 56px);
   }
-  .hero-bg-photo {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50%;
+  .hero-text {
+    padding: 60px 60px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero-label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 1.2rem;
+  }
+  h1 {
+    font-size: clamp(2.6rem, 6vw, 5.5rem);
+    font-weight: 400;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.8rem;
+  }
+  .hero-desc {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.8;
+    max-width: 360px;
+    letter-spacing: 0.01em;
+  }
+  .hero-photo {
+    position: relative;
+    overflow: hidden;
+    background: var(--light);
+  }
+  .hero-photo img {
+    width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center top;
-    opacity: 0.22;
-    filter: grayscale(100%);
-    mask-image: linear-gradient(to left, black 40%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to left, black 40%, transparent 100%);
-    pointer-events: none;
-    user-select: none;
+    filter: grayscale(100%) contrast(1.05);
+    display: block;
   }
-  #hero .container {
-    position: relative;
-    z-index: 1;
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  h1 {
-    font-size: clamp(1.8rem, 6vw, 3.6rem);
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    margin-bottom: 1.25rem;
-    color: var(--color-text);
-    white-space: nowrap;
-  }
-  .hero-subtitle {
-    font-size: 18px;
-    color: var(--color-muted);
-    margin-bottom: 2rem;
-    line-height: 1.7;
-  }
-  .hero-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-  }
-  .tag {
-    background: var(--color-tag-bg);
-    color: var(--color-tag-text);
-    font-size: 13px;
-    font-weight: 500;
-    padding: 5px 14px;
-    border-radius: 100px;
-  }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s;
-    border: none;
-  }
-  .btn-primary {
-    background: var(--color-accent);
-    color: #fff;
-  }
-  .btn-primary:hover { background: #4a3a2e; }
-  .btn-secondary {
-    background: transparent;
-    color: var(--color-accent);
-    border: 1.5px solid var(--color-accent);
-  }
-  .btn-secondary:hover { background: var(--color-accent-light); }
 
-  /* STATS */
-  #stats { background: #3d2f25; padding: 60px 2rem; }
-  #stats .container {
+  /* NUMBERS */
+  #numbers {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    text-align: center;
   }
-  .stat-number {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #fff;
+  .number-item {
+    padding: 60px 60px;
+    border-right: 1px solid var(--border);
+  }
+  .number-item:last-child { border-right: none; }
+  .number-value {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 400;
     line-height: 1;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
   }
-  .stat-label {
-    font-size: 14px;
-    color: rgba(255,255,255,0.7);
+  .number-label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray);
   }
 
-  /* ABOUT */
-  #sobre { background: var(--color-bg-alt); }
-  #sobre .container {
+  /* SOBRE */
+  #sobre {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: start;
+    min-height: 80vh;
+  }
+  .sobre-left {
+    padding: 100px 60px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .section-label {
-    font-size: 12px;
-    letter-spacing: 0.14em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--color-accent);
-    font-weight: 600;
-    margin-bottom: 1rem;
+    color: var(--gray);
+    margin-bottom: 3rem;
   }
   h2 {
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.25;
-    margin-bottom: 1.5rem;
-    color: var(--color-text);
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 2.5rem;
   }
-  p {
-    color: var(--color-muted);
-    line-height: 1.8;
-    margin-bottom: 1rem;
+  .sobre-text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.9;
+    max-width: 420px;
+  }
+  .sobre-right {
+    padding: 100px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .tag-cloud {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px 14px;
+    gap: 4px 20px;
+    line-height: 1.6;
     align-content: center;
-    justify-content: center;
-    padding-top: 0.5rem;
-    line-height: 1.5;
+    justify-content: flex-start;
   }
-  .tag-cloud span {
-    display: inline-block;
-  }
-  .tag-cloud .w1 { font-size: 36px; font-weight: 700; color: var(--color-text); }
-  .tag-cloud .w2 { font-size: 22px; font-weight: 600; color: var(--color-accent); }
-  .tag-cloud .w3 { font-size: 15px; font-weight: 500; color: var(--color-text); }
-  .tag-cloud .w4 { font-size: 12px; color: var(--color-muted); }
+  .tag-cloud span { display: inline-block; }
+  .w1 { font-size: 42px; font-weight: 400; color: var(--black); letter-spacing: -0.02em; }
+  .w2 { font-size: 26px; font-weight: 400; color: var(--black); letter-spacing: -0.01em; }
+  .w3 { font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: var(--black); }
+  .w4 { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: var(--gray); letter-spacing: 0.02em; }
 
-  /* EXPERIENCE */
-  #experiencia { background: var(--color-bg); }
-  .timeline {
-    position: relative;
-    padding-left: 28px;
+  /* EXPERIÊNCIA */
+  #experiencia {
+    border-top: 1px solid var(--border);
+    padding: 100px 60px;
   }
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 6px;
-    top: 8px;
-    bottom: 8px;
-    width: 1px;
-    background: var(--color-border);
+  .exp-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 0;
   }
-  .timeline-item {
-    position: relative;
-    margin-bottom: 40px;
+  .exp-sidebar {
+    padding-top: 4px;
   }
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -25px;
-    top: 8px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--color-accent);
-    border: 2px solid var(--color-bg);
-    box-shadow: 0 0 0 2px var(--color-accent);
+  .exp-list { list-style: none; }
+  .exp-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    align-items: baseline;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--border);
+    gap: 2rem;
   }
-  .timeline-item.active::before {
-    background: var(--color-accent);
-    box-shadow: 0 0 0 3px var(--color-accent-light);
-  }
-  .exp-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 6px;
+  .exp-item:first-child { border-top: 1px solid var(--border); }
+  .exp-company {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
   }
   .exp-role {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-text);
-  }
-  .exp-company {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-accent);
-    margin-bottom: 2px;
-  }
-  .exp-period {
-    font-size: 13px;
-    color: var(--color-muted);
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .exp-desc {
-    font-size: 14px;
-    color: var(--color-muted);
-    line-height: 1.7;
-    margin: 0;
-  }
-  .exp-brands {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 10px;
-  }
-  .brand-tag {
-    background: var(--color-tag-bg);
-    color: var(--color-tag-text);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
-    font-weight: 500;
-    padding: 3px 10px;
-    border-radius: 100px;
-  }
-  .current-badge {
-    display: inline-block;
-    background: #e8f5ef;
-    color: #1a7a4a;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 2px 10px;
-    border-radius: 100px;
+    color: var(--gray);
     letter-spacing: 0.04em;
+  }
+  .exp-year {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: var(--gray);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    text-align: right;
+  }
+  .exp-badge {
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--black);
+    padding: 2px 8px;
+    margin-left: 10px;
     vertical-align: middle;
-    margin-left: 8px;
   }
 
-  /* EDUCATION */
-  #formacao { background: var(--color-bg-alt); }
-  .edu-grid {
+  /* FORMAÇÃO */
+  #formacao {
+    border-top: 1px solid var(--border);
+    padding: 100px 60px;
+    background: var(--light);
+  }
+  .edu-list { list-style: none; margin-top: 3rem; }
+  .edu-item {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 16px;
-    margin-top: 2rem;
+    grid-template-columns: 1fr 1fr auto;
+    align-items: baseline;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+    gap: 2rem;
   }
-  .edu-card {
-    background: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 12px;
-    padding: 24px;
-  }
+  .edu-item:first-child { border-top: 1px solid var(--border); }
   .edu-institution {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: 4px;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
   }
   .edu-degree {
-    font-size: 14px;
-    color: var(--color-muted);
-    margin-bottom: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: var(--gray);
   }
   .edu-year {
-    font-size: 12px;
-    color: var(--color-accent);
-    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: var(--gray);
+    letter-spacing: 0.06em;
+    text-align: right;
   }
-
-  /* CONTACT */
-  #contato { background: #3d2f25; padding: 100px 2rem; }
-  #contato .container { text-align: center; }
-  #contato h2 { color: #fff; }
-  #contato p { color: rgba(255,255,255,0.7); max-width: 480px; margin: 0 auto 2.5rem; }
-  .contact-links {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .contact-links .btn-primary {
-    background: #fff;
-    color: var(--color-accent);
-  }
-  .contact-links .btn-primary:hover { background: rgba(255,255,255,0.9); }
-  .contact-links .btn-secondary {
-    border-color: rgba(255,255,255,0.5);
-    color: #fff;
-  }
-  .contact-links .btn-secondary:hover { background: rgba(255,255,255,0.1); }
 
   /* FOOTER */
   footer {
-    background: #2c1f17;
-    color: rgba(255,255,255,0.5);
-    text-align: center;
-    padding: 40px 2rem;
+    border-top: 1px solid var(--border);
+    padding: 40px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-name {
     font-size: 13px;
+    letter-spacing: 0.01em;
   }
   .footer-links {
     display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
+    gap: 32px;
   }
-  .footer-links .btn-primary {
-    background: rgba(255,255,255,0.12);
-    color: #fff;
-    border: 1px solid rgba(255,255,255,0.2);
+  .footer-links a {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+    border-bottom: 1px solid var(--black);
+    padding-bottom: 1px;
   }
-  .footer-links .btn-primary:hover { background: rgba(255,255,255,0.2); }
-  .footer-links .btn-secondary {
-    border-color: rgba(255,255,255,0.3);
-    color: rgba(255,255,255,0.8);
+  .footer-copy {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: var(--gray);
   }
-  .footer-links .btn-secondary:hover { background: rgba(255,255,255,0.08); }
 
   /* RESPONSIVE */
-  @media (max-width: 700px) {
-    .hero-bg-photo { width: 100%; opacity: 0.12; }
-    #stats .container { grid-template-columns: 1fr; gap: 2rem; }
-    #sobre .container { grid-template-columns: 1fr; gap: 2.5rem; }
-    .nav-links { display: none; }
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-contact { display: none; }
+    #hero { grid-template-columns: 1fr; }
+    .hero-photo { height: 60vw; }
+    .hero-text { padding: 40px 24px; }
+    #numbers { grid-template-columns: 1fr; }
+    .number-item { border-right: none; border-bottom: 1px solid var(--border); padding: 40px 24px; }
+    #sobre { grid-template-columns: 1fr; }
+    .sobre-left { padding: 60px 24px; border-right: none; border-bottom: 1px solid var(--border); }
+    .sobre-right { padding: 60px 24px; }
+    #experiencia { padding: 60px 24px; }
+    .exp-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr auto; }
+    .exp-role { display: none; }
+    #formacao { padding: 60px 24px; }
+    .edu-item { grid-template-columns: 1fr auto; }
+    .edu-degree { display: none; }
+    footer { padding: 32px 24px; flex-direction: column; gap: 20px; text-align: center; }
+    .footer-links { justify-content: center; }
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-inner">
-    <ul class="nav-links">
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#experiencia">Experiência</a></li>
-      <li><a href="#formacao">Formação</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
-  </div>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#experiencia">Experiência</a></li>
+    <li><a href="#formacao">Formação</a></li>
+  </ul>
+  <a href="mailto:michele.adolfo@gmail.com" class="nav-contact">Contato</a>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <img class="hero-bg-photo" src="foto.jpeg" alt="">
-  <div class="container">
-    <h1>Michele Adolfo Natorf</h1>
-    <p class="hero-subtitle">
-      Profissional com mais de 15 anos de experiência em publicidade, marketing digital e gestão de operações. Especialista em liderar equipes multidisciplinares e projetos complexos para marcas B2B e B2C.
-    </p>
-    <div class="hero-tags">
-      <span class="tag">Gestão de Atendimento</span>
-      <span class="tag">Gerenciamento de Projetos</span>
-      <span class="tag">Operações</span>
-      <span class="tag">Marketing Digital</span>
-      <span class="tag">Estratégia</span>
+  <div class="hero-text">
+    <div>
+      <p class="hero-label">Atendimento · Projetos · Operações</p>
+      <h1>Michele<br>Adolfo<br>Natorf</h1>
+      <p class="hero-desc">
+        Mais de 15 anos liderando projetos, operações e equipes multidisciplinares em publicidade e marketing digital. Marcas B2B e B2C de grande expressão.
+      </p>
     </div>
+  </div>
+  <div class="hero-photo">
+    <img src="foto.jpeg" alt="Michele Adolfo Natorf">
   </div>
 </section>
 
-<!-- STATS -->
-<section id="stats">
-  <div class="container">
-    <div>
-      <div class="stat-number">15+</div>
-      <div class="stat-label">Anos de experiência</div>
-    </div>
-    <div>
-      <div class="stat-number">20+</div>
-      <div class="stat-label">Marcas atendidas</div>
-    </div>
-    <div>
-      <div class="stat-number">15+</div>
-      <div class="stat-label">Pessoas por time liderado</div>
-    </div>
+<!-- NUMBERS -->
+<section id="numbers">
+  <div class="number-item">
+    <div class="number-value">15+</div>
+    <div class="number-label">Anos de experiência</div>
+  </div>
+  <div class="number-item">
+    <div class="number-value">20+</div>
+    <div class="number-label">Marcas atendidas</div>
+  </div>
+  <div class="number-item">
+    <div class="number-value">15+</div>
+    <div class="number-label">Pessoas por time liderado</div>
   </div>
 </section>
 
 <!-- SOBRE -->
 <section id="sobre">
-  <div class="container">
+  <div class="sobre-left">
     <div>
-      <p class="section-label">Sobre mim</p>
+      <p class="section-label">Sobre</p>
       <h2>Liderança estratégica com foco em resultado</h2>
-      <p>
-        Sou uma profissional com trajetória sólida em agências de publicidade e marketing digital, com foco em gestão de clientes, projetos e operações. Atuei com marcas líderes de mercado, liderando equipes multidisciplinares que integram mídia, planejamento, criação, tecnologia, UX e UI.
-      </p>
-      <p>
-        Minha capacidade analítica aliada à visão estratégica me permite conectar os objetivos dos clientes aos resultados do negócio, garantindo eficiência operacional, rentabilidade e relacionamentos de longo prazo.
+      <p class="sobre-text">
+        Profissional com trajetória sólida em agências de publicidade e marketing digital. Especialidade em gestão de clientes e projetos, liderando equipes que integram mídia, planejamento, criação, tecnologia, UX e UI.<br><br>
+        Capacidade analítica aliada à visão estratégica para conectar objetivos dos clientes aos resultados do negócio, garantindo eficiência operacional e relacionamentos de longo prazo.
       </p>
     </div>
-    <div>
-      <p class="section-label">Competências</p>
-      <div class="tag-cloud">
-        <span class="w1">Operações</span>
-        <span class="w2">Atendimento</span>
-        <span class="w3">Estratégia</span>
-        <span class="w1">Relacionamento</span>
-        <span class="w2">Projetos</span>
-        <span class="w4">Campanhas 360°</span>
-        <span class="w3">Liderança</span>
-        <span class="w2">Marketing Digital</span>
-        <span class="w4">B2B &amp; B2C</span>
-        <span class="w3">Planejamento</span>
-        <span class="w2">Negociação</span>
-        <span class="w4">UX &amp; UI</span>
-        <span class="w3">Gestão Financeira</span>
-        <span class="w4">Expansão de Mercado</span>
-        <span class="w3">Times Multifuncionais</span>
-      </div>
+  </div>
+  <div class="sobre-right">
+    <p class="section-label">Competências</p>
+    <div class="tag-cloud">
+      <span class="w1">Operações</span>
+      <span class="w2">Atendimento</span>
+      <span class="w3">Estratégia</span>
+      <span class="w1">Relacionamento</span>
+      <span class="w2">Projetos</span>
+      <span class="w4">Campanhas 360°</span>
+      <span class="w3">Liderança</span>
+      <span class="w2">Marketing Digital</span>
+      <span class="w4">B2B &amp; B2C</span>
+      <span class="w3">Planejamento</span>
+      <span class="w2">Negociação</span>
+      <span class="w4">UX &amp; UI</span>
+      <span class="w3">Gestão Financeira</span>
+      <span class="w4">Expansão de Mercado</span>
+      <span class="w3">Times Multifuncionais</span>
     </div>
   </div>
 </section>
 
 <!-- EXPERIÊNCIA -->
 <section id="experiencia">
-  <div class="container">
-    <p class="section-label">Trajetória</p>
-    <h2>Experiência profissional</h2>
-    <div class="timeline" style="margin-top: 2.5rem;">
-
-      <div class="timeline-item active">
-        <div class="exp-header">
-          <div>
-            <div class="exp-company">DZ Estúdio <span class="current-badge">Atual</span></div>
-            <div class="exp-role">Head de Atendimento</div>
-          </div>
-          <div class="exp-period">2025 – Presente</div>
-        </div>
-      </div>
-
-      <div class="timeline-item active">
-        <div class="exp-header">
-          <div>
-            <div class="exp-company">ollo.is <span class="current-badge">Atual</span></div>
-            <div class="exp-role">Ollo Curator</div>
-          </div>
-          <div class="exp-period">2024 – Presente</div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="exp-header">
-          <div>
-            <div class="exp-company">W3haus</div>
-            <div class="exp-role">Diretora de Atendimento</div>
-          </div>
-          <div class="exp-period">2019 – 2024</div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="exp-header">
-          <div>
-            <div class="exp-company">W3haus</div>
-            <div class="exp-role">Gerente de Atendimento</div>
-          </div>
-          <div class="exp-period">2016 – 2019</div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="exp-header">
-          <div>
-            <div class="exp-company">W3haus</div>
-            <div class="exp-role">Controller de Projetos</div>
-          </div>
-          <div class="exp-period">2014 – 2015</div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="exp-header">
-          <div>
-            <div class="exp-company">W3haus</div>
-            <div class="exp-role">Gerente de Projetos</div>
-          </div>
-          <div class="exp-period">2009 – 2014</div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="exp-header">
-          <div>
-            <div class="exp-company">W3haus</div>
-            <div class="exp-role">Executiva de Atendimento</div>
-          </div>
-          <div class="exp-period">2008 – 2009</div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="exp-header">
-          <div>
-            <div class="exp-company">Rage Comunicação Interativa</div>
-            <div class="exp-role">Executiva de Atendimento</div>
-          </div>
-          <div class="exp-period">2007 – 2008</div>
-        </div>
-      </div>
-
+  <div class="exp-grid">
+    <div class="exp-sidebar">
+      <p class="section-label">Trajetória</p>
+    </div>
+    <div>
+      <ul class="exp-list">
+        <li class="exp-item">
+          <span class="exp-company">DZ Estúdio <span class="exp-badge">Atual</span></span>
+          <span class="exp-role">Head de Atendimento</span>
+          <span class="exp-year">2025 — Presente</span>
+        </li>
+        <li class="exp-item">
+          <span class="exp-company">ollo.is <span class="exp-badge">Atual</span></span>
+          <span class="exp-role">Ollo Curator</span>
+          <span class="exp-year">2024 — Presente</span>
+        </li>
+        <li class="exp-item">
+          <span class="exp-company">W3haus</span>
+          <span class="exp-role">Diretora de Atendimento</span>
+          <span class="exp-year">2019 — 2024</span>
+        </li>
+        <li class="exp-item">
+          <span class="exp-company">W3haus</span>
+          <span class="exp-role">Gerente de Atendimento</span>
+          <span class="exp-year">2016 — 2019</span>
+        </li>
+        <li class="exp-item">
+          <span class="exp-company">W3haus</span>
+          <span class="exp-role">Controller de Projetos</span>
+          <span class="exp-year">2014 — 2015</span>
+        </li>
+        <li class="exp-item">
+          <span class="exp-company">W3haus</span>
+          <span class="exp-role">Gerente de Projetos</span>
+          <span class="exp-year">2009 — 2014</span>
+        </li>
+        <li class="exp-item">
+          <span class="exp-company">W3haus</span>
+          <span class="exp-role">Executiva de Atendimento</span>
+          <span class="exp-year">2008 — 2009</span>
+        </li>
+        <li class="exp-item">
+          <span class="exp-company">Rage Comunicação</span>
+          <span class="exp-role">Executiva de Atendimento</span>
+          <span class="exp-year">2007 — 2008</span>
+        </li>
+      </ul>
     </div>
   </div>
 </section>
 
 <!-- FORMAÇÃO -->
 <section id="formacao">
-  <div class="container">
-    <p class="section-label">Educação</p>
-    <h2>Formação acadêmica</h2>
-    <div class="edu-grid">
-      <div class="edu-card">
-        <div class="edu-institution">Formação de Líderes – SP</div>
-        <div class="edu-degree">PDL – Programa de Desenvolvimento de Liderança, Gestão de RH</div>
-        <div class="edu-year">2015 – 2016</div>
-      </div>
-      <div class="edu-card">
-        <div class="edu-institution">Universidade do Vale do Rio dos Sinos</div>
-        <div class="edu-degree">MBA, Gestão Organizacional</div>
-        <div class="edu-year">2011 – 2012</div>
-      </div>
-      <div class="edu-card">
-        <div class="edu-institution">Universidade do Vale do Rio dos Sinos</div>
-        <div class="edu-degree">Bacharelado em Publicidade e Propaganda</div>
-        <div class="edu-year">2003 – 2008</div>
-      </div>
-    </div>
-  </div>
+  <p class="section-label">Formação</p>
+  <ul class="edu-list">
+    <li class="edu-item">
+      <span class="edu-institution">Formação de Líderes — SP</span>
+      <span class="edu-degree">PDL – Programa de Desenvolvimento de Liderança, Gestão de RH</span>
+      <span class="edu-year">2015 — 2016</span>
+    </li>
+    <li class="edu-item">
+      <span class="edu-institution">Unisinos</span>
+      <span class="edu-degree">MBA, Gestão Organizacional</span>
+      <span class="edu-year">2011 — 2012</span>
+    </li>
+    <li class="edu-item">
+      <span class="edu-institution">Unisinos</span>
+      <span class="edu-degree">Bacharelado em Publicidade e Propaganda</span>
+      <span class="edu-year">2003 — 2008</span>
+    </li>
+  </ul>
 </section>
 
-
+<!-- FOOTER -->
 <footer>
+  <span class="footer-name">Michele Adolfo Natorf</span>
   <div class="footer-links">
-    <a href="mailto:michele.adolfo@gmail.com" class="btn btn-primary">michele.adolfo@gmail.com</a>
-    <a href="https://www.linkedin.com/in/micheleadolfo" target="_blank" class="btn btn-secondary">LinkedIn →</a>
+    <a href="mailto:michele.adolfo@gmail.com">E-mail</a>
+    <a href="https://www.linkedin.com/in/micheleadolfo" target="_blank">LinkedIn</a>
   </div>
-  <p>© 2026 Michele Adolfo Natorf</p>
+  <span class="footer-copy">© 2026</span>
 </footer>
 
 </body>
